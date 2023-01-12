@@ -29,7 +29,7 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false, //if false, the paths object contains all possible params and ids; if true, it can generate missing ones on the fly.
+    fallback: 'blocking', //if false, the paths object contains all possible params and ids; if true or 'blocking', it can generate missing ones on the fly.
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })), //generate our array of paths dynamically.
