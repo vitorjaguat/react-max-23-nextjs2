@@ -6,8 +6,6 @@ async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body; //getting the req.body, which will contain the form data (title, image, address, description)
 
-    const { title, image, address, description } = data;
-
     const client = await MongoClient.connect(
       process.env.MY_ENVIRONMENT_VARIABLE
     ); //add username and password where needed; the name 'meetups-db' after 'mongodb.net/' is the name of our db, it'll be created on the fly as we use it.
